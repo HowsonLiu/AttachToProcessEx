@@ -30,5 +30,15 @@
                 string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", this.ToString()),
                 "ATPEWindow");
         }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Attach_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

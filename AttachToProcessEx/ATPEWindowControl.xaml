@@ -11,8 +11,23 @@
              Name="MyToolWindow">
     <Grid>
         <StackPanel Orientation="Vertical">
-            <TextBlock Margin="10" HorizontalAlignment="Center">ATPEWindow</TextBlock>
-            <Button Content="Click me!" Click="button1_Click" Width="120" Height="80" Name="button1"/>
+            <TextBlock Margin="10" HorizontalAlignment="Center"><Run Text="ATPEWindow"/></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="textBox" TextWrapping="NoWrap" Text="Filter Process"/>
+                <Button x:Name="button" Content="Button"/>
+            </StackPanel>
+            <ListView x:Name="listView" MinHeight="100">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Refresh" Click="Refresh_Click" x:Name="RefreshBtn"/>
+                <Button Content="Attach" Click="Attach_Click" x:Name="AttachBtn"/>
+            </StackPanel>
+
         </StackPanel>
     </Grid>
 </UserControl>
