@@ -3,6 +3,7 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Windows;
     using System.Windows.Controls;
+    //using System.Windows.Forms;
 
     /// <summary>
     /// Interaction logic for ATPEWindowControl.
@@ -10,6 +11,7 @@
     public partial class ATPEWindowControl : UserControl
     {
         private ProcessInfoModel model;
+        private VSAttacher attacher;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ATPEWindowControl"/> class.
@@ -23,6 +25,7 @@
         private void Initialize()
         {
             this.model = new ProcessInfoModel();
+            this.attacher = new VSAttacher();
             this.listView.ItemsSource = model.Processinfolist;
         }
 
@@ -47,7 +50,10 @@
 
         private void Attach_Click(object sender, RoutedEventArgs e)
         {
-
+            if (this.listView.SelectedItems.Count <= 0)
+                return;
+            ProcessInfo curinfo = this.listView.SelectedItem as ProcessInfo;
+            attacher.Attach(curinfo.Pid);
         }
     }
 }

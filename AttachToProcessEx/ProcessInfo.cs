@@ -22,7 +22,7 @@ namespace AttachToProcessEx
 
         public void CleanProcessInfoList()
         {
-            if(Processinfolist.Count() <= 0)
+            if(Processinfolist.Count > 0)
             {
                 Processinfolist.Clear();
             }
