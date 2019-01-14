@@ -28,9 +28,19 @@
             x:Name="button" Content="OK"/>
         <ListView Grid.Row="2" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2"
             x:Name="listView" MinHeight="100">
+            <ListView.Resources>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+                </Style>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+                </Style>
+            </ListView.Resources>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" Width="100"/>
+                    <GridViewColumn Header="PID" DisplayMemberBinding="{Binding Path=Pid}" Width="Auto"/>
+                    <GridViewColumn Header="Command Line" DisplayMemberBinding="{Binding Path=CommandLine}" Width="300"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -14,11 +14,6 @@ namespace AttachToProcessEx
     {
         public List<ProcessInfo> Processinfolist { get; }
 
-        // Column Headers
-        public const string nameHeader = "Name";
-        public const string pidHeader = "PID";
-        public const string commandLineHeader = "Command Line";
-
         public ProcessInfoModel()
         {
             Processinfolist = new List<ProcessInfo>();

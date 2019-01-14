@@ -9,12 +9,21 @@
     /// </summary>
     public partial class ATPEWindowControl : UserControl
     {
+        private ProcessInfoModel model;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ATPEWindowControl"/> class.
         /// </summary>
         public ATPEWindowControl()
         {
             this.InitializeComponent();
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            this.model = new ProcessInfoModel();
+            this.listView.ItemsSource = model.Processinfolist;
         }
 
         /// <summary>
@@ -33,7 +42,7 @@
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-
+            this.model.UpdateProcessInfoList();
         }
 
         private void Attach_Click(object sender, RoutedEventArgs e)
