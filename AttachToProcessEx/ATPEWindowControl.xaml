@@ -39,7 +39,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=Name}" Width="100"/>
-                    <GridViewColumn Header="PID" DisplayMemberBinding="{Binding Path=Pid}" Width="Auto"/>
+                    <GridViewColumn Header="PID" DisplayMemberBinding="{Binding Path=Pid}" Width="50"/>
                     <GridViewColumn Header="Command Line" DisplayMemberBinding="{Binding Path=CommandLine}" Width="300"/>
                 </GridView>
             </ListView.View>

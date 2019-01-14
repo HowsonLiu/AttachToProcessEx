@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+using System.Collections.ObjectModel;
 
 namespace AttachToProcessEx
 {
@@ -12,11 +13,11 @@ namespace AttachToProcessEx
     /// </summary>
     class ProcessInfoModel
     {
-        public List<ProcessInfo> Processinfolist { get; }
+        public ObservableCollection<ProcessInfo> Processinfolist { get; }
 
         public ProcessInfoModel()
         {
-            Processinfolist = new List<ProcessInfo>();
+            Processinfolist = new ObservableCollection<ProcessInfo>();
             UpdateProcessInfoList();
         }
 
