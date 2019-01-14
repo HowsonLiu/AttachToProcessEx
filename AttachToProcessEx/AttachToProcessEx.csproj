@@ -60,6 +60,7 @@
       <DependentUpon>ATPEWindowControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ATPEWindowPackage.cs" />
+    <Compile Include="ProcessInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
