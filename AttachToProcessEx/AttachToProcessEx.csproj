@@ -62,6 +62,7 @@
     <Compile Include="ATPEWindowPackage.cs" />
     <Compile Include="ProcessInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VSAttacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Key.snk" />
