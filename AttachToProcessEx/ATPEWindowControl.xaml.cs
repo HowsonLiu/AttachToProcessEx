@@ -45,7 +45,7 @@
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            this.model.UpdateProcessInfoList();
+            this.model.UpdateProcessInfoList(this.textBox.Text);
         }
 
         private void Attach_Click(object sender, RoutedEventArgs e)

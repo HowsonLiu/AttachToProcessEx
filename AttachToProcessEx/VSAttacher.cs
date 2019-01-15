@@ -117,7 +117,7 @@ namespace AttachToProcessEx
             }
             if(tips != null)
                 MessageBox.Show(
-                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "Invoked '{0}'", tips),
+                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0}", tips),
                 "ATPEWindow");
         }
 
