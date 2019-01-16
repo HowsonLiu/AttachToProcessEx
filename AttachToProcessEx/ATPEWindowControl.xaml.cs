@@ -53,7 +53,8 @@
             if (this.listView.SelectedItems.Count <= 0)
                 return;
             ProcessInfo curinfo = this.listView.SelectedItem as ProcessInfo;
-            attacher.Attach(curinfo.Pid);
+            attacher.AttachByDTE(int.Parse(curinfo.Pid));
+            //attacher.Attach(curinfo.Pid);
         }
     }
 }

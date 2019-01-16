@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
+using System.Windows.Forms;
+using Microsoft.VisualStudio.Shell;
+using EnvDTE;
+using Microsoft;
+using System.Globalization;
+using Thread = System.Threading.Thread;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace AttachToProcessEx
 {
@@ -86,7 +93,36 @@ namespace AttachToProcessEx
             // it must be async because the window will block the main thread
             Thread thread = new Thread(new ParameterizedThreadStart(this.AttachToProcess));
             thread.Start(pid);
-            System.Windows.Forms.SendKeys.SendWait("^%p");
+            SendKeys.SendWait("^%p");
+        }
+
+        public void AttachByDTE(int pid)
+        {
+            ThreadHelper.ThrowIfNotOnUIThread();
+            DTE dte =
+                ServiceProvider.GlobalProvider.GetService(typeof(DTE)) as DTE;
+            Assumes.Present(dte);
+            Processes processes = dte.Debugger.LocalProcesses;
+            foreach(Process process in processes)
+            {
+                if(process.ProcessID == pid)
+                {
+                    try
+                    {
+                        process.Attach();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(
+                            string.Format("You have not access to attach to {0} process", pid.ToString()),
+                            "ATPEWindow");
+                    }
+                    return;
+                }
+            }
+            MessageBox.Show(
+                string.Format("Can't attach to {0} process", pid.ToString()),
+                "ATPEWindow");
         }
 
         private void AttachToProcess(object pid)
@@ -117,7 +153,7 @@ namespace AttachToProcessEx
             }
             if(tips != null)
                 MessageBox.Show(
-                string.Format(System.Globalization.CultureInfo.CurrentUICulture, "{0}", tips),
+                string.Format(CultureInfo.CurrentUICulture, "{0}", tips),
                 "ATPEWindow");
         }
 
